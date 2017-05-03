@@ -5,7 +5,7 @@ MPC/MPD and Icecast2 Dockerfile. Based on https://github.com/moul/docker-icecast
 
 ## Run
 
-Run with default password, export port 8000. 
+Run with default password, export port 8000.
 
 Expose 6600 for external client connection like mpc
 
