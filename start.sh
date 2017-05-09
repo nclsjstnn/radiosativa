@@ -4,11 +4,7 @@ env
 
 set -x
 
-#aws ecr get-login --region ${AWS_REGION}
-
-
 fapg --format=m3u --output=/opt/playlists/sativo.m3u /opt/music
-
 
 if [ -n "$ICECAST_SOURCE_PASSWORD" ]; then
     sed -i "s/<source-password>[^<]*<\/source-password>/<source-password>$ICECAST_SOURCE_PASSWORD<\/source-password>/g" /etc/icecast2/icecast.xml
@@ -33,10 +29,9 @@ fi
 /etc/init.d/icecast2 restart
 /etc/init.d/mpd restart
 
+# sleep 10
+
 mpc outputs
-
-sleep 40
-
 mpc update
 mpc ls | mpc add
 mpc repeat on

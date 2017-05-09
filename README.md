@@ -9,8 +9,14 @@ Run with default password, export port 8000.
 
 Expose 6600 for external client connection like mpc
 
+Build image
+
 ```bash
-docker run --env-file=sativa.env -p 8000:8000 -p 6600:6600 --privileged --cap-add SYS_ADMIN --cap-add MKNOD --device=/dev/fuse --security-opt apparmor:unconfined -v /Users/nicolasjustiniano/Music/Music\ Converter:/opt/music sativa
+docker build -t sativa .
+```
+
+```bash
+docker run --env-file=sativa.env -p 8000:8000 -p 6600:6600 --privileged --cap-add SYS_ADMIN --cap-add MKNOD --device=/dev/fuse --security-opt apparmor:unconfined -v radio:/opt/music sativa
 $BROWSER localhost:8000
 ```
 

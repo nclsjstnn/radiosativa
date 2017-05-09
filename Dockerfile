@@ -23,7 +23,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN pip install --upgrade pip
 RUN pip install yas3fs
 RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod a+r /etc/fuse.conf
-#RUN yas3fs s3://$S3_PATH /opt/music -df
 
 VOLUME /opt/music
 
@@ -33,8 +32,8 @@ VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/pla
 
 ADD ./mpd.conf /etc/mpd.conf
 ADD ./start.sh /start.sh
-ADD ./start_mpd.sh /start_mpd.sh
 ADD ./voiceovers /usr/local/audio/voiceovers
+ADD ./radio /opt/music
 ADD ./icecast.xml /etc/icecast2/icecast.xml
 ADD ./icecast2 /etc/default/icecast2
 ADD ./silence.ogg /usr/share/icecast2/web/silence.ogg
