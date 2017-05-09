@@ -1,5 +1,5 @@
 awsdeployment:
-  image: jstnn/radiosativa
+  image: sativa
   encrypted_env_file: sativa.env.encrypted
   environment:
     - AWS_DEFAULT_REGION=us-west-2

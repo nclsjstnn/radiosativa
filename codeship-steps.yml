@@ -1,2 +1,2 @@
 - service: awsdeployment
-  command: codeship_aws eb_deploy PATH_TO_FOLDER_TO_DEPLOY APPLICATION_NAME ENVIRONMENT_NAME S3_BUCKET_NAME
+  command: codeship_aws eb_deploy /deploy sativo radiosativa-prod elasticbeanstalk-us-west-2-870562786218

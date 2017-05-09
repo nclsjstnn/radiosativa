@@ -3,6 +3,14 @@ SATIVA RADIO
 
 MPC/MPD and Icecast2 Dockerfile. Based on https://github.com/moul/docker-icecast
 
+## Push image to registry
+```
+export DOCKER_ID_USER="jstnn"
+docker login
+docker tag sativa $DOCKER_ID_USER/radiosativa
+docker push $DOCKER_ID_USER/radiosativa
+```
+
 ## Run
 
 Run with default password, export port 8000.
