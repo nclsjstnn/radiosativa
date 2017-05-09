@@ -4,8 +4,10 @@ env
 
 set -x
 
+#make sample playlist
 fapg --format=m3u --output=/opt/playlists/sativo.m3u /opt/music
 
+#inject icecast credentials if entered
 if [ -n "$ICECAST_SOURCE_PASSWORD" ]; then
     sed -i "s/<source-password>[^<]*<\/source-password>/<source-password>$ICECAST_SOURCE_PASSWORD<\/source-password>/g" /etc/icecast2/icecast.xml
 fi

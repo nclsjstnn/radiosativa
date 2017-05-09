@@ -3,3 +3,6 @@
 .#*
 sativa.env
 codeship.aes
+.DS_Store
+dockercfg
+tmp
