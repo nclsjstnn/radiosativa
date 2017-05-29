@@ -26,11 +26,12 @@ RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod 
 
 VOLUME /opt/music
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/entrypoint.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
 
 ADD ./mpd.conf /etc/mpd.conf
+ADD ./entrypoint.sh /entrypoint.sh
 ADD ./start.sh /start.sh
 ADD ./voiceovers /usr/local/audio/voiceovers
 ADD ./radio /opt/music
