@@ -2,10 +2,6 @@ app:
   build:
     image: jstnn/radiosativa
     dockerfile_path: Dockerfile
-aws_dockercfg:
-  image: codeship/aws-ecr-dockercfg-generator
-  add_docker: true
-  encrypted_env_file: sativa.env.encrypted
 awsdeployment:
   image: codeship/aws-deployment
   encrypted_env_file: sativa.env.encrypted
