@@ -21,6 +21,8 @@ Build image
 
 ```bash
 docker build -t sativa .
+docker tag sativa jstnn/radiosativa:latest
+docker push jstnn/radiosativa
 ```
 
 ```bash

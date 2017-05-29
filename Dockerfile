@@ -26,7 +26,7 @@ RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod 
 
 VOLUME /opt/music
 
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
 
@@ -39,4 +39,5 @@ ADD ./icecast.xml /etc/icecast2/icecast.xml
 ADD ./icecast2 /etc/default/icecast2
 ADD ./silence.ogg /usr/share/icecast2/web/silence.ogg
 RUN chown -R icecast2 /etc/icecast2
+RUN chmod 755 /entrypoint.sh
 RUN echo 'mpd : ALL' >> /etc/hosts.allow
