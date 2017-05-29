@@ -13,6 +13,7 @@ RUN mkdir -p /opt/music && \
     mkdir -p /opt/playlists && \
     mkdir -p /var/log/supervisor && \
     mkdir -p /usr/local/audio/voiceovers && \
+    mkdir -p /var/log/supervisor && \
     chown mpd. /opt/music /opt/playlists /usr/local/audio/voiceovers
 
 RUN chmod g+w /opt/music /opt/playlists /usr/local/audio/voiceovers
@@ -26,12 +27,12 @@ RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod 
 
 VOLUME /opt/music
 
+COPY ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["sh", "/entrypoint.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
 
 ADD ./mpd.conf /etc/mpd.conf
-ADD ./entrypoint.sh /entrypoint.sh
 ADD ./start.sh /start.sh
 ADD ./voiceovers /usr/local/audio/voiceovers
 ADD ./radio /opt/music
