@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq -y update && \
 	apt-get -qq -y upgrade && \
-    apt-get -qq -y install build-essential icecast2 mpc mpd awscli python-pip fuse sudo supervisor fapg && \
+    apt-get -qq -y install build-essential icecast2 mpc mpd awscli python-pip fuse sudo fapg && \
     apt-get clean
 
 RUN mkdir -p /opt/music && \
@@ -16,8 +16,6 @@ RUN mkdir -p /opt/music && \
 
 RUN chmod g+w /opt/music /opt/playlists /usr/local/audio/voiceovers
 
-#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 #S3
 RUN pip install --upgrade pip
 RUN pip install yas3fs
@@ -25,9 +23,6 @@ RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod 
 
 VOLUME /opt/music
 
-# ADD ./entrypoint.sh /entrypoint.sh
-# RUN chmod 755 /entrypoint.sh
-# ENTRYPOINT ["sh", "/entrypoint.sh"]
 CMD ["/start.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
