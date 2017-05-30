@@ -11,14 +11,12 @@ RUN apt-get -qq -y update && \
 
 RUN mkdir -p /opt/music && \
     mkdir -p /opt/playlists && \
-    mkdir -p /var/log/supervisor && \
     mkdir -p /usr/local/audio/voiceovers && \
-    mkdir -p /var/log/supervisor && \
     chown mpd. /opt/music /opt/playlists /usr/local/audio/voiceovers
 
 RUN chmod g+w /opt/music /opt/playlists /usr/local/audio/voiceovers
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #S3
 RUN pip install --upgrade pip
@@ -27,8 +25,10 @@ RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod 
 
 VOLUME /opt/music
 
-COPY ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+# ADD ./entrypoint.sh /entrypoint.sh
+# RUN chmod 755 /entrypoint.sh
+# ENTRYPOINT ["sh", "/entrypoint.sh"]
+CMD ["/start.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
 
@@ -40,5 +40,5 @@ ADD ./icecast.xml /etc/icecast2/icecast.xml
 ADD ./icecast2 /etc/default/icecast2
 ADD ./silence.ogg /usr/share/icecast2/web/silence.ogg
 RUN chown -R icecast2 /etc/icecast2
-RUN chmod 755 /entrypoint.sh
+
 RUN echo 'mpd : ALL' >> /etc/hosts.allow
