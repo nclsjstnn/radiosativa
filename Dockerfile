@@ -21,8 +21,6 @@ RUN pip install --upgrade pip
 RUN pip install yas3fs
 RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod a+r /etc/fuse.conf
 
-VOLUME /opt/music
-
 CMD ["/start.sh"]
 EXPOSE 8000 6600
 VOLUME ["/config", "/var/log/icecast2", "/etc/icecast2", "/opt/music", "/opt/playlists", "/usr/local/audio/voiceovers"]
