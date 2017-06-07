@@ -1,7 +1,8 @@
-SATIVA RADIO
+BLESS.FM RADIO
 =============
 
-MPC/MPD and Icecast2 Dockerfile. Based on https://github.com/moul/docker-icecast
+MPC/MPD and Icecast2 in a Dockerfile. Based on https://github.com/moul/docker-icecast
+My implementation uses Elastic Beanstalk as a final container.
 
 ## Push image to registry
 ```
