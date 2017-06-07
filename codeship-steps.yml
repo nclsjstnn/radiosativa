@@ -5,7 +5,7 @@
   registry: https://index.docker.io/v1/
   encrypted_dockercfg_path: dockercfg.encrypted
 - service: awsdeployment
-  command: codeship_aws eb_deploy /deploy sativo bless-prod elasticbeanstalk-us-west-2-365634619383
+  command: codeship_aws eb_deploy /deploy Bless bless-prod elasticbeanstalk-us-west-2-365634619383
 # - service: awsdeployment
 #   command: aws ecs register-task-definition --cli-input-json file:///deploy/tasks/backend.json
 # - service: awsdeployment
