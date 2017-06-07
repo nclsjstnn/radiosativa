@@ -26,7 +26,7 @@ docker tag sativa jstnn/radiosativa:latest
 docker push jstnn/radiosativa
 ```
 
-Run image
+Run image local
 
 ```bash
 docker run --env-file=sativa.env -p 8000:8000 -p 6600:6600 --privileged --cap-add SYS_ADMIN --cap-add MKNOD --device=/dev/fuse --security-opt apparmor:unconfined -v radio:/opt/music sativa
