@@ -17,9 +17,9 @@ RUN mkdir -p /opt/music && \
 RUN chmod g+w /opt/music /opt/playlists /usr/local/audio/voiceovers
 
 #S3
-RUN pip install --upgrade pip
-RUN pip install yas3fs
-RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod a+r /etc/fuse.conf
+#RUN pip install --upgrade pip
+#RUN pip install yas3fs
+#RUN sed -i'' 's/^# *user_allow_other/user_allow_other/' /etc/fuse.conf && chmod a+r /etc/fuse.conf
 
 CMD ["/start.sh"]
 EXPOSE 8000 6600

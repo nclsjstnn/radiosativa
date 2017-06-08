@@ -3,7 +3,7 @@
   "Volumes": [
     {
       "HostDirectory": "/media/ebs_volume",
-      "ContainerDirectory": "/opt/music"
+      "ContainerDirectory": "/opt/music/MP3"
     }
   ]
 }
