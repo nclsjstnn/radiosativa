@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq -y update && \
 	apt-get -qq -y upgrade && \
-    apt-get -qq -y install build-essential icecast2 mpc mpd awscli python-pip fuse sudo fapg && \
+    apt-get -qq -y install build-essential icecast2 mpc mpd awscli python-pip sudo fapg && \
     apt-get clean
 
 RUN mkdir -p /opt/music && \
