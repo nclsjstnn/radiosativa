@@ -2,6 +2,7 @@
 *#
 .#*
 sativa.env
+sativo.pem
 codeship.aes
 .DS_Store
 dockercfg
