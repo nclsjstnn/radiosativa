@@ -1,0 +1,21 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "radiosativa",
+      "image": "jstnn/radiosativa",
+      "memory": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8000
+        },
+        {
+          "hostPort": 6600,
+          "containerPort": 6600
+        }
+      ]
+    }
+  ]
+}

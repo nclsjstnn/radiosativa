@@ -1,9 +1,0 @@
-{
-  "AWSEBDockerrunVersion": "1",
-  "Volumes": [
-    {
-      "HostDirectory": "/media/ebs_volume",
-      "ContainerDirectory": "/opt/music/MP3"
-    }
-  ]
-}
